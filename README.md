@@ -24,44 +24,21 @@
 
 * Use @JoinColumn to customize the foreign key column name.
 
-### One-to-Many Tasks:
 
-####  Basic One-to-Many Mapping:
+### Database Design for OneToOne (User && UserProfile)
 
-* Create an Author entity and a Book entity.
+#### User Table:
+| Col Name   | Data Type | Additional Info |
+|------------|-----------|-----------------|
+| id         | bigint    | PK              |
+| first_name | varchar   | //              |
+| last_name  | varchar    | //              |
+| email      | varchar    | //              |
 
-* Use the @OneToMany and @ManyToOne annotations to establish a relationship where one author can have multiple books.
-
-* Test saving an author with multiple books.
-
-#### Bidirectional One-to-Many:
-
-* Make the Book entity aware of its Author using a bidirectional mapping.
-
-* Use mappedBy to link the two sides correctly.
-
-* Test the cascading options.
-
-#### Managing Orphan Entities:
-
-* Use the orphanRemoval attribute to automatically remove books when they are no longer associated with an author.
-
-### Many-to-Many Tasks:
-
-#### Basic Many-to-Many Mapping:
-
-* Create Student and Course entities with a many-to-many relationship.
-
-* Use the @ManyToMany annotation and a JoinTable to handle the relationship.
-
-* Test saving a student enrolled in multiple courses.
-
-#### Bidirectional Many-to-Many:
-
-* Make the relationship bidirectional by adding the corresponding @ManyToMany annotation in the other entity.
-
-* Use the mappedBy attribute to avoid creating duplicate tables.
-
-#### Adding Extra Columns to the Join Table:
-
-* Modify the many-to-many relationship to include extra columns, like enrollmentDate or grade, by using an intermediate Enrollment entity.
+#### UserProfile Table:
+| Col Name  | Data Type | Additional Info |
+|-----------|-----------|-----------------|
+| id        | bigint    | PK              |
+| image_url | varchar   | //              |
+| bio       | text      | //              |
+| user_id   | bigint    | Unique Key + FK |
