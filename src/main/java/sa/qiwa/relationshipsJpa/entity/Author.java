@@ -77,6 +77,7 @@ public class Author {
         }
 
         this.books.add(book);
+        book.setAuthor(this);
     }
     @Override
     public String toString() {
