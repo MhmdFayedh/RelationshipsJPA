@@ -19,4 +19,26 @@
 #### Adding Extra Columns to the Join Table:
 
 * Modify the many-to-many relationship to include extra columns, like enrollmentDate or grade, by using an intermediate Enrollment entity.
-'
+
+### Database Design for ManyToMany ( User & Role and UserRole)
+
+#### User Table:
+| Col Name   | Data Type | Additional Info |
+|------------|-----------|-----------------|
+| id         | bigint    | PK              |
+| first_name | varchar   | //              |
+| last_name  | varchar    | //              |
+| email      | varchar    | //              |
+
+#### Role Table:
+| Col Name | Data Type | Additional Info |
+|----------|-----------|-----------------|
+| id       | bigint    | PK              |
+| name     | varchar   | //              |
+
+#### UserRole Table:
+| Col Name | Data Type | Additional Info |
+|----------|-----------|-------------|
+| user_id  | bigint    | PK          |
+| role_id  | bigint    | PK          |
+
