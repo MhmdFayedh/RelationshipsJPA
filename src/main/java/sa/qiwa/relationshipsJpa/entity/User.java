@@ -17,6 +17,9 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private UserProfile userProfile;
+
     public User(){
 
     }
@@ -57,6 +60,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public UserProfile getUserProfile() {
+        return userProfile;
+    }
+
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
     }
 
     @Override
